@@ -1,0 +1,7 @@
+{
+  "name": "RafikoTp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
