@@ -1,10 +1,13 @@
 <template>  
-  <div main class="ion-page">
 
   <ion-page>
     <ion-header>
-      <ion-toolbar>
-        <ion-title>Test</ion-title>
+      <ion-toolbar color="Light">
+        <ion-buttons slot="start">
+          <ion-back-button >
+        </ion-back-button>
+      </ion-buttons>
+        <ion-title></ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
@@ -49,22 +52,24 @@
    <ion-button @click='send()'>Envoyer</ion-button>
   </ion-content>
   <ion-footer>
-    <ion-button router-link="/test">test </ion-button>
-    <ion-button router-link="/home">home </ion-button>
-    <ion-button router-link="/camera">camera </ion-button>
-
+ 
 </ion-footer>
-</ion-page></div>
+</ion-page>
   </template>
   
   <script lang="ts">
-import { IonFooter,IonTitle,IonToolbar,IonHeader,IonContent,IonPage,IonLabel, IonInput, IonItem,IonSelect,IonCol,IonRow, IonButton,IonSelectOption,IonRadio, IonRadioGroup ,IonCheckbox} from '@ionic/vue';
+import { IonBackButton,IonButtons,IonFooter,IonTitle,IonToolbar,IonHeader,IonContent,IonPage,IonLabel, IonInput, IonItem,IonSelect,IonCol,IonRow, IonButton,IonSelectOption,IonRadio, IonRadioGroup ,IonCheckbox} from '@ionic/vue';
   import { defineComponent } from 'vue';
  
+  import { arrowBack} from 'ionicons/icons';
 
   export default defineComponent({
-    components: {IonFooter,IonTitle,IonToolbar, IonHeader,IonContent, IonPage ,IonCol,IonRow , IonLabel, IonInput,IonButton, IonItem ,IonSelect,IonSelectOption,IonRadio, IonRadioGroup ,IonCheckbox},
-
+    components: {IonBackButton,IonButtons,IonFooter,IonTitle,IonToolbar, IonHeader,IonContent, IonPage ,IonCol,IonRow , IonLabel, IonInput,IonButton, IonItem ,IonSelect,IonSelectOption,IonRadio, IonRadioGroup ,IonCheckbox},
+    setup() {
+      return {  
+ arrowBack
+      }
+    },
     data(){
   return {
     ArrMatiere :[{ name:'phy',check:true },{ name:'algo',check:true },{ name:'info',check:false }] ,

@@ -2,8 +2,12 @@
     
     <ion-page>
   <ion-header>
-    <ion-toolbar>
-      <ion-title>Contrat Pzge</ion-title>
+    <ion-toolbar color="Light">
+      <ion-buttons slot="start">
+        <ion-back-button >
+        </ion-back-button>
+      </ion-buttons>
+      <ion-title></ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -49,15 +53,17 @@ Footer
   
   <script lang="ts">
   
-import {IonButton, IonFooter,IonTitle,IonToolbar,IonHeader,IonPage,IonContent  } from '@ionic/vue';
+import {IonBackButton,IonButton, IonButtons,IonFooter,IonTitle,IonToolbar,IonHeader,IonPage,IonContent  } from '@ionic/vue';
   import { defineComponent } from 'vue';
   declare var google :any;
-
-
-
+  import { arrowBack} from 'ionicons/icons';
   export default defineComponent({
-    components: {IonButton, IonFooter,IonTitle,IonToolbar,IonHeader,IonPage,IonContent   },
-  
+    components: {IonBackButton,IonButtons, IonFooter,IonTitle,IonToolbar,IonHeader,IonPage,IonContent   },
+    setup() {
+      return {  
+ arrowBack
+      }
+    },
     data(){
   return {
 

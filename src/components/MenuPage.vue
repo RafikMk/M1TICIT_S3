@@ -1,17 +1,14 @@
 <template>
   <ion-menu content-id="main-content">
-    <ion-header>
-      <ion-toolbar color="tertiary">
-        <ion-title>Menu Content</ion-title>
-      </ion-toolbar>
-    </ion-header>
+ 
     <ion-content class="ion-padding">   <ion-list>
       <ion-list-header>
         Navigate
       </ion-list-header>
       <ion-menu-toggle auto-hide="false" v-for="p in appPages" :key="p.title">
-        <ion-item button @click="navigate(p.url)">
-          <ion-icon slot="start" :name="p.icon"></ion-icon>
+        <ion-item button @click="navigate(p.url,p.title)">
+          <ion-icon slot="start" :icon="p.icon"></ion-icon>
+
           <ion-label>
             {{p.title}}
           </ion-label>
@@ -26,16 +23,20 @@
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Menu</ion-title>
+        <ion-title>{{ title }}</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
+      <ion-router-outlet />
 
       </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
+    import { clipboardOutline, camera, map,contractOutline } from 'ionicons/icons';
+    import { IonApp, IonRouterOutlet,IonSplitPane } from '@ionic/vue';
+
   import {
     IonList,
     IonButtons,
@@ -53,6 +54,8 @@
 
   export default defineComponent({
     components: {
+      IonRouterOutlet,
+
       IonIcon,
       IonList,
       IonMenuToggle,
@@ -68,28 +71,27 @@
     },
     data(){
   return {
-
+    title :'Page 1' as any ,
     appPages : [
       {
-        title: 'Schedule',
-        url: '/tabs/schedule',
-        name: 'tabs.schedule',
-        icon: 'calendar'
+        title: 'Contrat',
+        url: '/Contrat',
+        icon: clipboardOutline
       },
       {
-        title: 'Speakers',
-        url: '/tabs/speakers',
-        icon: 'contacts'
+        title: 'Camera',
+        url: '/Camera',
+        icon: camera
       },
       {
         title: 'Map',
-        url: '/tabs/map',
-        icon: 'map'
+        url: '/map',
+        icon: map
       },
       {
-        title: 'About',
-        url: '/tabs/about',
-        icon: 'information-circle'
+        title: 'Page 1',
+        url: '/test',
+        icon: contractOutline
       }
     ],
   };
@@ -97,12 +99,15 @@
 methods: {
 
 
-  navigate(url: string){
+  navigate(url: string,titre :string){
       // this.$router.directionOverride = 0;
       this.$router.push(url)
+this.title =titre 
     }
     },
     mounted: function(){
+      this.title = this.$route.name;
+
    //  alert('hh)')
 //this.OneSignalInit()
 },

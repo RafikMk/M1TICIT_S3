@@ -2,8 +2,12 @@
     
   <ion-page>
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Contrat Pzge</ion-title>
+  <ion-toolbar color="Light">
+    <ion-buttons slot="start">
+      <ion-back-button >
+        </ion-back-button>
+      </ion-buttons>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -75,16 +79,16 @@ Footer
 </template>
 
 <script lang="ts">
-import {IonFabButton,IonIcon, IonButton,IonList,IonSelect,IonCheckbox,IonSelectOption,IonItem,IonInput,IonLabel,IonGrid,IonCol,IonRow,IonFooter,IonTitle,IonToolbar,IonHeader,IonPage,IonContent  } from '@ionic/vue';
+import {IonBackButton,IonButtons,IonFabButton,IonIcon, IonButton,IonList,IonSelect,IonCheckbox,IonSelectOption,IonItem,IonInput,IonLabel,IonGrid,IonCol,IonRow,IonFooter,IonTitle,IonToolbar,IonHeader,IonPage,IonContent  } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import ContratService from '@/services/ContratService';
 import { usePhotoGallery,UserPhoto } from '@/composables/usePhotoGallery';
-    import { camera, trash, close } from 'ionicons/icons';
+    import { camera, trash, close ,arrowBack} from 'ionicons/icons';
     import { images, square, triangle } from 'ionicons/icons';
 import axios from 'axios'
 
 export default defineComponent({
-  components: {IonFabButton,IonIcon,IonButton,IonList,IonSelect,IonCheckbox,IonSelectOption, IonItem,IonInput,IonLabel,IonGrid,IonCol,IonRow,IonFooter,IonTitle,IonToolbar,IonHeader,IonPage,IonContent   },
+  components: {IonBackButton,IonButtons,IonFabButton,IonIcon,IonButton,IonList,IonSelect,IonCheckbox,IonSelectOption, IonItem,IonInput,IonLabel,IonGrid,IonCol,IonRow,IonFooter,IonTitle,IonToolbar,IonHeader,IonPage,IonContent   },
   setup() {
       const { photos ,takePhoto ,idImageFunction} = usePhotoGallery();
       return { 
@@ -94,7 +98,7 @@ export default defineComponent({
         square,
         triangle,
         takePhoto,
-        camera, trash, close
+        camera, trash, close,arrowBack
       }
     },
   data(){

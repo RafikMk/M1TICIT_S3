@@ -3,11 +3,12 @@
       <ion-page>
     <ion-header>
  
-      <ion-toolbar color="primary">
+      <ion-toolbar color="Light">
         <ion-buttons slot="start">
-        <ion-back-button text="gvh" icon="add"></ion-back-button>
+        <ion-back-button >
+        </ion-back-button>
       </ion-buttons>
-        <ion-title color="light">Camera</ion-title>
+        <ion-title color="light"></ion-title>
       </ion-toolbar>
       <ion-breadcrumbs >
   <ion-breadcrumb href="#">Camera</ion-breadcrumb>
@@ -52,10 +53,10 @@
   </ion-tab-button>--> 
   </ion-content>
   <ion-footer>
-    <ion-button router-link="/test">test </ion-button>
+      <!--  <ion-button router-link="/test">test </ion-button>
     <ion-button router-link="/home">home </ion-button>
     <ion-button router-link="/camera">camera </ion-button>
-
+--> 
 </ion-footer>
 </ion-page>
 
@@ -67,7 +68,7 @@
     import { defineComponent } from 'vue';
     import OneSignal from 'onesignal-cordova-plugin';
     import { usePhotoGallery,UserPhoto } from '@/composables/usePhotoGallery';
-    import { camera, trash, close } from 'ionicons/icons';
+    import { camera, trash, close, map ,arrowBack} from 'ionicons/icons';
     import { images, square, triangle } from 'ionicons/icons';
     import axios from 'axios'
   import { globe } from 'ionicons/icons';
@@ -81,7 +82,7 @@
         square,
         triangle,
         takePhoto,
-        camera, trash, close
+        camera, trash, close,arrowBack
       }
     },
       data(){
